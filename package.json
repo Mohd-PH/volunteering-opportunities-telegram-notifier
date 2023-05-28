@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "knex": "^2.4.2",
+    "mysql": "^2.18.1",
+    "objection": "^3.0.1",
+    "prettier": "^2.8.8",
+    "sqlite3": "^5.1.6"
+  },
+  "name": "volunteer-oppurtinites-telegram-notifier",
+  "version": "0.0.1",
+  "description": "a telegram bot that scrapes volunteering sites to notify interested volunteers",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "knex": "knex",
+    "migrate": "knex migrate:up --migrations-directory ./database/migrations"
+  },
+  "author": "Mohd-PH",
+  "license": "GPL-3.0-only"
+}
