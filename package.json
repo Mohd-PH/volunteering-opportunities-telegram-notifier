@@ -15,7 +15,7 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "knex": "knex",
-    "migrate": "knex migrate:up --migrations-directory ./database/migrations"
+    "migrate": "knex migrate:latest --migrations-directory ./database/migrations"
   },
   "author": "Mohd-PH",
   "license": "GPL-3.0-only"
