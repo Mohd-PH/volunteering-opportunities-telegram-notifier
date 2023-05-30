@@ -15,6 +15,14 @@ module.exports = {
     },
   },
 
+  testing: {
+    client: "sqlite3",
+    connection: {
+      filename: ":memory:",
+    },
+    useNullAsDefault: true,
+  },
+
   staging: {
     client: process.env.DATABASE_CLIENT,
     connection: {

@@ -8,7 +8,11 @@ const Location = require("./Location.js");
 const Opportunity = require("./Opportunity.js");
 
 const knex = Knex(
-  process.env.env == "production" ? knexfile.production : knexfile.development
+  process.env.ENV == "production"
+    ? knexfile.production
+    : process.env.ENV == "development"
+    ? knexfile.development
+    : knexfile.testing
 );
 
 Model.knex(knex);
@@ -18,4 +22,5 @@ module.exports = {
   Region,
   Location,
   Opportunity,
+  knex,
 };
