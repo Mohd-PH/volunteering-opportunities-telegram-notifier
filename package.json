@@ -5,7 +5,8 @@
     "mysql": "^2.18.1",
     "objection": "^3.0.1",
     "prettier": "^2.8.8",
-    "sqlite3": "^5.1.6"
+    "sqlite3": "^5.1.6",
+    "telegraf": "^4.12.2"
   },
   "name": "volunteer-oppurtinites-telegram-notifier",
   "version": "0.0.1",
@@ -18,5 +19,8 @@
     "migrate": "knex migrate:latest --migrations-directory ./database/migrations"
   },
   "author": "Mohd-PH",
-  "license": "GPL-3.0-only"
+  "license": "GPL-3.0-only",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
 }
