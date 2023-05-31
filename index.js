@@ -14,6 +14,10 @@ const main = async () => {
   bot.command("settings", require("./bot/commands/settings.js"));
 
   bot.action("select-region", require("./bot/actions/select-region.js"));
+  bot.action(
+    /display-region-\d+-cities/,
+    require("./bot/actions/display-region-cities.js")
+  );
 
   bot.launch();
   process.once("SIGINT", () => bot.stop("SIGINT"));
