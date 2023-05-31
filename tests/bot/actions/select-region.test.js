@@ -1,5 +1,5 @@
 const selectRegion = require("../../../bot/actions/select-region.js");
-const Region = require("../../../models/Region.js");
+const { Region } = require("../../../models/index.js");
 
 describe("Start", () => {
   beforeEach(async () => {

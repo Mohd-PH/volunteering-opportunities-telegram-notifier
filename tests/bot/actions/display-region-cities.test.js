@@ -33,9 +33,7 @@ describe("Start", () => {
     });
 
     const ctx = require("../../utils/ctx.js")();
-    ctx.callbackQuery = {
-      data: `display-region-${region1.id}-cities`,
-    };
+    ctx.callbackQuery.data = `display-region-${region1.id}-cities`;
     const user = await User.query().insertGraph({
       name: ctx.message.from.first_name,
       username: ctx.message.from.username,
@@ -96,9 +94,8 @@ describe("Start", () => {
     });
 
     const ctx = require("../../utils/ctx.js")();
-    ctx.callbackQuery = {
-      data: `display-region-${region1.id}-cities`,
-    };
+    ctx.callbackQuery.data = `display-region-${region1.id}-cities`;
+
     const user = await User.query().insertGraph({
       name: ctx.message.from.first_name,
       username: ctx.message.from.username,
