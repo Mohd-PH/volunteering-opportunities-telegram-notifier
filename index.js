@@ -13,10 +13,7 @@ const main = async () => {
   bot.start(require("./bot/commands/start.js"));
   bot.command("settings", require("./bot/commands/settings.js"));
 
-  bot.action("edit-locations", async (ctx) => {
-    await ctx.reply("editing locations reply");
-    await ctx.answerCbQuery("editing locations cb query");
-  });
+  bot.action("select-region", require("./bot/actions/select-region.js"));
 
   bot.launch();
   process.once("SIGINT", () => bot.stop("SIGINT"));
