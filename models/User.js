@@ -5,19 +5,19 @@ class User extends Model {
     return "users";
   }
   static get relationMappings() {
-    const Location = require("./Location");
+    const City = require("./City");
     const Opportunity = require("./Opportunity");
     return {
-      locations: {
+      cities: {
         relation: Model.ManyToManyRelation,
-        modelClass: Location,
+        modelClass: City,
         join: {
           from: "users.id",
           through: {
-            from: "user_locations.user_id",
-            to: "user_locations.location_id",
+            from: "user_cities.user_id",
+            to: "user_cities.city_id",
           },
-          to: "locations.id",
+          to: "cities.id",
         },
       },
       opportunities: {

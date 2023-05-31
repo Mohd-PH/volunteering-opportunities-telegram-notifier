@@ -1,8 +1,8 @@
 const { Model } = require("objection");
 
-class Location extends Model {
+class City extends Model {
   static get tableName() {
-    return "locations";
+    return "cities";
   }
   static get relationMappings() {
     const Region = require("./Region.js");
@@ -14,7 +14,7 @@ class Location extends Model {
         relation: Model.BelongsToOneRelation,
         modelClass: Region,
         join: {
-          from: "locations.region_id",
+          from: "cities.region_id",
           to: "regions.id",
         },
       },
@@ -22,7 +22,7 @@ class Location extends Model {
         relation: Model.HasManyRelation,
         modelClass: Opportunity,
         join: {
-          from: "locations.id",
+          from: "cities.id",
           to: "opportunities.location_id",
         },
       },
@@ -30,10 +30,10 @@ class Location extends Model {
         relation: Model.ManyToManyRelation,
         modelClass: User,
         join: {
-          from: "locations.id",
+          from: "cities.id",
           through: {
-            from: "user_locations.location_id",
-            to: "user_locations.user_id",
+            from: "user_cities.city",
+            to: "user_cities.user_id",
           },
           to: "users.id",
         },
@@ -42,4 +42,4 @@ class Location extends Model {
   }
 }
 
-module.exports = Location;
+module.exports = City;

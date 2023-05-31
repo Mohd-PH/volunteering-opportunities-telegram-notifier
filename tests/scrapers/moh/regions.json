@@ -1,0 +1,141 @@
+[{
+    "Cities": [],
+    "GroupRegion": null,
+    "RegionColorSetting": [],
+    "Id": 1,
+    "Name": "Riyadh",
+    "NameAr": "منطقة الرياض",
+    "Email": "Healthruhvol@SRCA.ORG.SA",
+    "IsDeleted": false,
+    "GroupRegionsId": null
+}, {
+    "Cities": [],
+    "GroupRegion": null,
+    "RegionColorSetting": [],
+    "Id": 2,
+    "Name": "Qassim",
+    "NameAr": "منطقة القصيم",
+    "Email": "Healthqasvol@SRCA.ORG.SA",
+    "IsDeleted": false,
+    "GroupRegionsId": null
+}, {
+    "Cities": [],
+    "GroupRegion": null,
+    "RegionColorSetting": [],
+    "Id": 3,
+    "Name": "Tabuk",
+    "NameAr": "منطقة تبوك",
+    "Email": "Healthtabvol@SRCA.ORG.Sa",
+    "IsDeleted": false,
+    "GroupRegionsId": null
+}, {
+    "Cities": [],
+    "GroupRegion": null,
+    "RegionColorSetting": [],
+    "Id": 4,
+    "Name": "Madinah",
+    "NameAr": "منطقة المدينة المنورة",
+    "Email": "Healthmdnvol@SRCA.ORG.SA",
+    "IsDeleted": false,
+    "GroupRegionsId": null
+}, {
+    "Cities": [],
+    "GroupRegion": null,
+    "RegionColorSetting": [],
+    "Id": 5,
+    "Name": "Mecca",
+    "NameAr": "مكة المكرمة",
+    "Email": "Healthmakvol@SRCA.ORG.SA",
+    "IsDeleted": false,
+    "GroupRegionsId": null
+}, {
+    "Cities": [],
+    "GroupRegion": null,
+    "RegionColorSetting": [],
+    "Id": 6,
+    "Name": "Northern Borders",
+    "NameAr": "منطقة الحدود الشمالية",
+    "Email": "Healtharrvol@SRCA.ORG.Sa",
+    "IsDeleted": false,
+    "GroupRegionsId": null
+}, {
+    "Cities": [],
+    "GroupRegion": null,
+    "RegionColorSetting": [],
+    "Id": 7,
+    "Name": "Jawf",
+    "NameAr": "منطقة الجوف",
+    "Email": "Healthjofvol@SRCA.ORG.Sa",
+    "IsDeleted": false,
+    "GroupRegionsId": null
+}, {
+    "Cities": [],
+    "GroupRegion": null,
+    "RegionColorSetting": [],
+    "Id": 8,
+    "Name": "Ha'il",
+    "NameAr": "منطقة حائل",
+    "Email": "Healthhilvol@SRCA.ORG.Sa",
+    "IsDeleted": false,
+    "GroupRegionsId": null
+}, {
+    "Cities": [],
+    "GroupRegion": null,
+    "RegionColorSetting": [],
+    "Id": 9,
+    "Name": "Bahah",
+    "NameAr": "منطقة الباحة",
+    "Email": "Healthbahvol@SRCA.ORG.Sa",
+    "IsDeleted": false,
+    "GroupRegionsId": null
+}, {
+    "Cities": [],
+    "GroupRegion": null,
+    "RegionColorSetting": [],
+    "Id": 10,
+    "Name": "Jizan",
+    "NameAr": "منطقة جازان",
+    "Email": "Healthjazvol@SRCA.ORG.Sa",
+    "IsDeleted": false,
+    "GroupRegionsId": null
+}, {
+    "Cities": [],
+    "GroupRegion": null,
+    "RegionColorSetting": [],
+    "Id": 11,
+    "Name": "Asir",
+    "NameAr": "منطقة عسير",
+    "Email": "Healthasrvol@SRCA.ORG.Sa",
+    "IsDeleted": false,
+    "GroupRegionsId": null
+}, {
+    "Cities": [],
+    "GroupRegion": null,
+    "RegionColorSetting": [],
+    "Id": 12,
+    "Name": "Najran",
+    "NameAr": "منطقة نجران",
+    "Email": "Healthnajvol@SRCA.ORG.Sa",
+    "IsDeleted": false,
+    "GroupRegionsId": null
+}, {
+    "Cities": [],
+    "GroupRegion": null,
+    "RegionColorSetting": [],
+    "Id": 13,
+    "Name": "Eastern Province",
+    "NameAr": "المنطقة الشرقية",
+    "Email": "Healthdmmvol@SRCA.ORG.Sa",
+    "IsDeleted": false,
+    "GroupRegionsId": null
+}, {
+    "Cities": [],
+    "GroupRegion": null,
+    "RegionColorSetting": [],
+    "Id": 17,
+    "Name": " -",
+    "NameAr": " -",
+    "Email": null,
+    "IsDeleted": false,
+    "GroupRegionsId": null
+}]

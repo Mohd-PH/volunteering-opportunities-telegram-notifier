@@ -5,15 +5,15 @@ class Opportunity extends Model {
     return "opportunities";
   }
   static get relationMappings() {
-    const Location = require("./Location");
+    const City = require("./City");
     const User = require("./User");
     return {
-      region: {
+      city: {
         relation: Model.BelongsToOneRelation,
-        modelClass: Location,
+        modelClass: City,
         join: {
-          from: "opportunities.location_id",
-          to: "locations.id",
+          from: "opportunities.city_id",
+          to: "cities.id",
         },
       },
       users: {

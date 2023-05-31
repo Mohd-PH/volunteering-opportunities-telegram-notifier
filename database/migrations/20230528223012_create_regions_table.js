@@ -5,7 +5,8 @@
 exports.up = function (knex) {
   return knex.schema.createTable("regions", function (table) {
     table.increments("id").index().primary();
-    table.string("name");
+    table.string("name_en");
+    table.string("name_ar");
     table.timestamps(true, true, true);
   });
 };
