@@ -64,6 +64,12 @@ describe("Start", () => {
           callback_data: `toggle-city-${city2.id}`,
         },
       ],
+      [
+        {
+          text: "💾 حفظ",
+          callback_data: `save`,
+        },
+      ],
     ]);
   });
 
@@ -126,6 +132,12 @@ describe("Start", () => {
         {
           text: "🔴 " + city2.name_ar,
           callback_data: `toggle-city-${city2.id}`,
+        },
+      ],
+      [
+        {
+          text: "💾 حفظ",
+          callback_data: `save`,
         },
       ],
     ]);

@@ -64,6 +64,12 @@ describe("Start", () => {
           callback_data: `toggle-city-${city2.id}`,
         },
       ],
+      [
+        {
+          text: "💾 حفظ",
+          callback_data: `save`,
+        },
+      ],
     ]);
 
     user = await User.query().findById(user.id).withGraphFetched("cities");

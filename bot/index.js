@@ -12,6 +12,7 @@ const launchBot = async () => {
     require("./actions/display-region-cities.js")
   );
   bot.action(/toggle-city-\d+/, require("./actions/toggle-city.js"));
+  bot.action("save", require("./actions/save.js"));
 
   bot.launch();
   process.once("SIGINT", () => bot.stop("SIGINT"));

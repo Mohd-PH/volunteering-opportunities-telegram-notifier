@@ -15,15 +15,25 @@ module.exports = async (ctx) => {
       .withGraphFetched("cities");
     await ctx.editMessageText("إختر المدن\n🔴 غير مفعلة\n🟢 مفعلة");
     await ctx.editMessageReplyMarkup({
-      inline_keyboard: region.cities.map((city) => {
-        const userCity = user.cities.find((userCity) => userCity.id == city.id);
-        return [
+      inline_keyboard: [
+        ...region.cities.map((city) => {
+          const userCity = user.cities.find(
+            (userCity) => userCity.id == city.id
+          );
+          return [
+            {
+              text: (userCity ? "🟢 " : "🔴 ") + city.name_ar,
+              callback_data: `toggle-city-${city.id}`,
+            },
+          ];
+        }),
+        [
           {
-            text: (userCity ? "🟢 " : "🔴 ") + city.name_ar,
-            callback_data: `toggle-city-${city.id}`,
+            text: "💾 حفظ",
+            callback_data: `save`,
           },
-        ];
-      }),
+        ],
+      ],
     });
   } catch (error) {
     console.error(error);
