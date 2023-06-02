@@ -52,7 +52,12 @@ const parseOpportunity = (opportunity, cities, citiesInDB) => {
   };
 };
 
-const scrape = async (totalPages = null) => {
+const scrape = async (options) => {
+  let { totalPages, stopAfter } = {
+    totalPages: options.totalPages ?? null,
+    stopAfter: options.stopAfter ?? 9999999,
+  };
+
   try {
     console.log("Started scraping regions");
     const regions = (
@@ -109,7 +114,9 @@ const scrape = async (totalPages = null) => {
       );
     }
 
+    let pagesWithoutNewOpportunities = 0;
     for (const page of [...Array(totalPages).keys()].map((x) => x + 1)) {
+      let newOpportunity = false;
       console.log(`Started scraping opportunities page ${page}/${totalPages}`);
       const opportunities = (
         await axios.get(
@@ -126,10 +133,21 @@ const scrape = async (totalPages = null) => {
           .findOne(opportunity)
           .skipUndefined();
         if (!opportunityInDB) {
+          newOpportunity = true;
           opportunityInDB = await Opportunity.query().insertGraph(opportunity);
           console.log(`New opportunitiy ${opportunity.title}`);
         }
         opportunitiesInDB.push(opportunityInDB);
+      }
+      if (!newOpportunity) {
+        pagesWithoutNewOpportunities += 1;
+      } else {
+        pagesWithoutNewOpportunities = 0;
+      }
+
+      if (pagesWithoutNewOpportunities >= stopAfter) {
+        console.log(`⚠️ Stopped at page ${page} due to no new opportunities`);
+        break;
       }
     }
 

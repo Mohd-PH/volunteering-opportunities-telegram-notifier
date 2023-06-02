@@ -7,7 +7,9 @@ const scrape = async () => {
     console.log("Starting MOH scraper");
     await scrapeMOH();
     console.log("Starting SRCA scraper");
-    await scrapeSRCA();
+    await scrapeSRCA({
+      stopAfter: 10,
+    });
     console.log("Finished scraping");
     await knex.destroy();
   } catch (error) {
