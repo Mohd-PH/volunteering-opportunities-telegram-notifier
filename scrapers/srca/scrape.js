@@ -52,7 +52,7 @@ const parseOpportunity = (opportunity, cities, citiesInDB) => {
   };
 };
 
-const scrape = async (options) => {
+const scrape = async (options = {}) => {
   let { totalPages, stopAfter } = {
     totalPages: options.totalPages ?? null,
     stopAfter: options.stopAfter ?? 9999999,
