@@ -32,7 +32,7 @@ class City extends Model {
         join: {
           from: "cities.id",
           through: {
-            from: "user_cities.city",
+            from: "user_cities.city_id",
             to: "user_cities.user_id",
           },
           to: "users.id",

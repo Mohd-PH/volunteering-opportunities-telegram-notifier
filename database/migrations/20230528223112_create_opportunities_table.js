@@ -11,8 +11,8 @@ exports.up = function (knex) {
     table.integer("city_id");
     table.foreign("city_id").references("id").inTable("cities");
     table.text("description", "mediumtext");
-    table.date("start_date");
-    table.date("end_date");
+    table.datetime("start_date");
+    table.datetime("end_date");
     table.text("department_name_en");
     table.text("department_name_ar");
     table.text("location");

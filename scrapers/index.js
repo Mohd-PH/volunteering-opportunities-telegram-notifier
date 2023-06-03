@@ -1,6 +1,7 @@
 const { knex } = require("../models/index.js");
 const { scrape: scrapeMOH } = require("./moh/scrape.js");
 const { scrape: scrapeSRCA } = require("./srca/scrape.js");
+const annouceOpportunities = require("../bot/annouceOpportunities.js");
 
 const scrape = async () => {
   try {
@@ -11,6 +12,9 @@ const scrape = async () => {
       stopAfter: 10,
     });
     console.log("Finished scraping");
+
+    await annouceOpportunities();
+
     await knex.destroy();
   } catch (error) {
     console.error(error);
