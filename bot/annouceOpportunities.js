@@ -1,5 +1,6 @@
 const { bot } = require("./index.js");
 const { Opportunity, User } = require("../models/index.js");
+const { logger, actionsLogger } = require("../logger.js");
 
 module.exports = async (sendUser = null) => {
   const opportunities = await Opportunity.query()
@@ -31,9 +32,9 @@ module.exports = async (sendUser = null) => {
           error.response.description == "Forbidden: bot was blocked by the user"
         ) {
           await User.query().patchAndFetchById(user.id, { active: false });
-          console.log(`User ${user.name} blocked the bot, deactivated`);
+          actionsLogger.info(`User ${user.name} blocked the bot, deactivated`);
         } else {
-          console.error(error);
+          logger.error(error);
         }
       }
     }

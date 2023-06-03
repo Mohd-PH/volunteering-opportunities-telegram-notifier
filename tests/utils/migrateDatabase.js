@@ -1,5 +1,6 @@
 const path = require("path");
 const { knex } = require("../../models/index.js");
+const { logger } = require("../../logger.js");
 
 module.exports = async () => {
   try {
@@ -10,7 +11,7 @@ module.exports = async () => {
       directory: path.join(__dirname, "..", "..", "database", "migrations"),
     });
   } catch (error) {
-    console.log(error);
+    logger.error(error);
   }
   return;
 };

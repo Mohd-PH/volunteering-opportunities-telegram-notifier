@@ -1,3 +1,4 @@
+const { logger } = require("../../logger.js");
 const { Region, User } = require("../../models");
 
 module.exports = async (ctx) => {
@@ -36,8 +37,6 @@ module.exports = async (ctx) => {
       ],
     });
   } catch (error) {
-    console.error(error);
-    console.error(ctx.callbackQuery.message);
-    console.error(ctx.callbackQuery.data);
+    logger.error(error);
   }
 };

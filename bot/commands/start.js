@@ -1,3 +1,4 @@
+const { actionsLogger } = require("../../logger.js");
 const { User } = require("../../models/index.js");
 const path = require("path");
 
@@ -14,9 +15,9 @@ module.exports = async (ctx) => {
       telegram_user_id: ctx.message.from.id,
       chat_id: ctx.message.chat.id,
     });
-    console.log(`Created user: ${JSON.stringify(user)}`);
+    actionsLogger.info(`Created user: ${JSON.stringify(user)}`);
   } else {
-    console.log(`User already created: ${JSON.stringify(user)}`);
+    actionsLogger.info(`User already created: ${JSON.stringify(user)}`);
   }
   return;
 };

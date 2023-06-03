@@ -1,3 +1,4 @@
+const { logger } = require("../../logger.js");
 const { City, User } = require("../../models");
 const displayRegionCities = require("./display-region-cities");
 module.exports = async (ctx) => {
@@ -18,8 +19,8 @@ module.exports = async (ctx) => {
 
     ctx.callbackQuery.data = `display-region-${city.region.id}-cities`;
   } catch (error) {
-    console.error(error);
-    console.error(ctx);
+    logger.error(error);
+    logger.error(ctx);
   }
   return displayRegionCities(ctx);
 };

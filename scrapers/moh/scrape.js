@@ -1,5 +1,6 @@
 const axios = require("axios");
 const { Region, City, Opportunity } = require("../../models");
+const { logger } = require("../../logger");
 
 const parseRegion = (region) => {
   return {
@@ -54,33 +55,33 @@ const parseOpportunity = (opportunity, cities, citiesInDB) => {
 
 const scrape = async () => {
   try {
-    console.log("Started scraping regions");
+    logger.info("Started scraping regions");
     const regions = (
       await axios.get(
         "https://volunteer.srca.org.sa/api/utils/regionsRegistration/read"
       )
     ).data;
 
-    console.log("Started seeding regions");
+    logger.info("Started seeding regions");
     const regionsInDB = [];
     for (const region of regions.map(parseRegion)) {
       let regionInDB = await Region.query().findOne(region).skipUndefined();
       if (!regionInDB) {
         regionInDB = await Region.query().insertGraph(region);
-        console.log(`New Region ${region.name_en}`);
+        logger.info(`New Region ${region.name_en}`);
       }
       regionsInDB.push(regionInDB);
     }
-    console.log("Finished seeding regions");
+    logger.info("Finished seeding regions");
 
-    console.log("Started scraping cities");
+    logger.info("Started scraping cities");
     const cities = (
       await axios.get(
         "https://volunteer.srca.org.sa/api/utils/citiesRegistration/read"
       )
     ).data;
 
-    console.log("Started seeding cities");
+    logger.info("Started seeding cities");
     const citiesInDB = [];
     for (const city of cities.map((city) =>
       parseCity(city, regions, regionsInDB)
@@ -93,21 +94,21 @@ const scrape = async () => {
         .skipUndefined();
       if (!cityInDB) {
         cityInDB = await City.query().insertGraph(city);
-        console.log(`New city ${city.name_en}`);
+        logger.info(`New city ${city.name_en}`);
       }
       citiesInDB.push(cityInDB);
     }
 
-    console.log("Finished seeding cities");
+    logger.info("Finished seeding cities");
 
-    console.log("Started scraping opportunitis");
+    logger.info("Started scraping opportunitis");
     const opportunities = (
       await axios.get(
         "https://volunteer.srca.org.sa/api/utils/home/events/privateEventsbyPageWithRegionsCitiesSQL/1/-1/0/0/0/99999999"
       )
     ).data;
 
-    console.log("Started seeding opportunities");
+    logger.info("Started seeding opportunities");
     const opportunitiesInDB = [];
     for (const opportunity of opportunities.map((opportunity) =>
       parseOpportunity(opportunity, cities, citiesInDB)
@@ -117,15 +118,15 @@ const scrape = async () => {
         .skipUndefined();
       if (!opportunityInDB) {
         opportunityInDB = await Opportunity.query().insertGraph(opportunity);
-        console.log(`New opportunitiy ${opportunity.title}`);
+        logger.info(`New opportunitiy ${opportunity.title}`);
       }
       opportunitiesInDB.push(opportunityInDB);
     }
 
-    console.log("Finished seeding opportunities");
+    logger.info("Finished seeding opportunities");
     return;
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     return;
   }
 };
