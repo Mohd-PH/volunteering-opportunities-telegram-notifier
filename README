@@ -11,7 +11,7 @@ Currently not hosted to be used by the public
 
 If you are interested in developing it more, clone the project and run:
 
-```bash
+```
 # Set the database credentials in .env file along with bot token
 cp .env.example .env
 # Install the packages
