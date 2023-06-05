@@ -34,8 +34,8 @@ const parseOpportunity = (opportunity, cities, citiesInDB) => {
         cities.find((city) => city.Id == opportunity.CityId)?.Name
     )?.id,
     description: opportunity.Description,
-    start_date: new Date(opportunity.StartDate),
-    end_date: new Date(opportunity.EndDate),
+    start_date: new Date(opportunity.StartDate).toISOString(),
+    end_date: new Date(opportunity.EndDate).toISOString(),
     department_name_en: opportunity.DepartmentName,
     department_name_ar: opportunity.DepartmentNameAr,
     location: opportunity.Location,
