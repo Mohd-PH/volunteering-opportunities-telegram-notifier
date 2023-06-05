@@ -3,6 +3,7 @@ const annouceOpportunities = require("../../bot/annouceOpportunities.js");
 const { bot } = require("../../bot/index.js");
 const { Region, City, Opportunity, User } = require("../../models/index.js");
 const faker = require("../utils/faker.js");
+const compose_opportunitiy_message = require("../../bot/compose_opportunitiy_message.js");
 
 describe("Annouce opportunities", () => {
   beforeEach(async () => {
@@ -24,6 +25,7 @@ describe("Annouce opportunities", () => {
         ).toISOString(),
       })
     );
+    opportunity.city = city;
     const user = await User.query().insert(faker.user());
     await user.$relatedQuery("cities").relate(city);
 
@@ -32,6 +34,10 @@ describe("Annouce opportunities", () => {
     await annouceOpportunities();
 
     expect(bot.telegram.sendMessage.mock.calls).toHaveLength(1);
+    expect(bot.telegram.sendMessage.mock.calls[0][0]).toBe(user.chat_id);
+    expect(bot.telegram.sendMessage.mock.calls[0][1]).toBe(
+      compose_opportunitiy_message(opportunity)
+    );
     expect((await user.$relatedQuery("opportunities")).length).toBe(1);
     expect((await user.$relatedQuery("opportunities"))[0].title).toBe(
       opportunity.title
@@ -204,7 +210,7 @@ describe("Annouce opportunities", () => {
     expect((await user1.$relatedQuery("opportunities")).length).toBe(0);
     expect((await user2.$relatedQuery("opportunities")).length).toBe(0);
 
-    await annouceOpportunities(user1);
+    await annouceOpportunities(user1.chat_id);
 
     expect(bot.telegram.sendMessage.mock.calls).toHaveLength(1);
     expect((await user1.$relatedQuery("opportunities")).length).toBe(1);

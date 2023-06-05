@@ -64,8 +64,10 @@ module.exports = {
   user: (options = {}) => {
     return Object.assign(
       {
-        telegram_user_id: faker.number.int({ min: 3000 }),
-        chat_id: faker.number.int({ min: 3000 }),
+        telegram_user_id: faker.number
+          .int({ min: 3000, max: 10000 })
+          .toString(),
+        chat_id: faker.number.int({ min: 3000, max: 10000 }).toString(),
         name: faker.person.firstName(),
         username: faker.internet.userName(),
         active: true,
