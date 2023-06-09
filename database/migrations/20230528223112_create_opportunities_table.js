@@ -8,8 +8,8 @@ exports.up = function (knex) {
     table.string("source_id");
     table.string("source");
     table.string("title");
-    table.integer("city_id");
-    table.foreign("city_id").references("id").inTable("cities");
+    table.integer("city_id").unsigned();
+    table.foreign("city_id").references("cities.id");
     table.text("description", "mediumtext");
     table.datetime("start_date");
     table.datetime("end_date");

@@ -7,8 +7,8 @@ exports.up = function (knex) {
     table.increments("id").index().primary();
     table.string("name_en");
     table.string("name_ar");
-    table.integer("region_id");
-    table.foreign("region_id").references("id").inTable("regions");
+    table.integer("region_id").unsigned();
+    table.foreign("region_id").references("regions.id");
     table.string("latitude");
     table.string("longitude");
     table.timestamps(true, true, true);

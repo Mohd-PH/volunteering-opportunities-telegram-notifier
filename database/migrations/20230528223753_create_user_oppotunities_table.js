@@ -4,11 +4,10 @@
  */
 exports.up = function (knex) {
   return knex.schema.createTable("user_opportunities", function (table) {
-    table.integer("user_id");
-    table.foreign("user_id").references("id").inTable("users");
-    table.integer("opportunity_id");
-    table.foreign("opportunity_id").references("id").inTable("opportunities");
-    table.boolean("notified").defaultsTo(false);
+    table.integer("user_id").unsigned();
+    table.foreign("user_id").references("users.id");
+    table.integer("opportunity_id").unsigned();
+    table.foreign("opportunity_id").references("opportunities.id");
     table.timestamps(true, true, true);
   });
 };
